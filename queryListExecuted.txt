@@ -1,0 +1,78 @@
+db.STUDENT_RECORD.insertMany([{
+    "name" : "Amar",
+     "primary_address" : "Lokhandwaala complex",
+     "fav_teacher":"Munna Chand",
+     "age":16
+
+},
+{
+    "name" : "Akbar",
+     "primary_address" : "Lokhandwaala complexOne",
+     "fav_teacher":"Arun",
+     "age":17
+
+},
+{
+    "name" : "Anthony",
+     "primary_address" : "Lokhandwaala complexTwo",
+     "fav_teacher":"Lester",
+     "age":16
+
+},
+{
+    "name" : "Deepak",
+     "primary_address" : "Lokhandwaala complexThree",
+     "fav_teacher":"Joseph",
+     "age":18
+
+}]);
+
+db.STUDENT_RECORD.findOne({name: "Arun"});
+
+db.STUDENT_RECORD.insertOne({
+    "name" : "Vijay",
+     "primary_address" : "Lokhandwaala complexFour",
+     "fav_teacher":"Joseph",
+     "age":18
+
+});
+
+db.STUDENT_RECORD.findOneAndUpdate(
+	{name : "Vijay",},
+	{ $set: { primary_address : "123 abc nagar chennai"}}
+);
+
+db.STUDENT_RECORD.insertOne({
+    "name" : "Lakhshmi Mittal",
+     "primary_address" : "124 efg nagar Varanasi",
+     "fav_teacher":"Joseph",
+     "age":12
+
+});
+
+db.STUDENT_RECORD.find({"age":{$gte:12}});
+
+db.STUDENT_RECORD.insertOne({
+    "name" : "Ashwini",
+     "primary_address" : "124 efg nagar Varanasi",
+     "fav_teacher":"Ramanujan",
+     "age":15
+
+});
+
+db.STUDENT_RECORD.find({"name":"Ashwini"},{"fav_teacher":1});
+
+db.STUDENT_RECORD.count();
+
+db.STUDENT_RECORD.find({primary_address:{$regex:"chennai"}}).pretty()
+
+
+db.STUDENT_RECORD.find({primary_address:{$regex:"chennai"}}).count()
+
+db.STUDENT_RECORD.findOneAndUpdate(
+	{name : "Vijay",},
+	{ $set: { fav_teacher : "Anitha"}}
+);
+
+db.STUDENT_RECORD.find({fav_teacher:"Anitha"}).count()
+
